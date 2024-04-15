@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://0n6ui5ofppu"]
+
+[ext_resource type="Script" path="res://Scripts/CharacterBody2D.cs" id="1_dup16"]
+[ext_resource type="Texture2D" uid="uid://cavwhh7bsk0j2" path="res://Sprites/Circle32.png" id="2_42805"]
+[ext_resource type="Script" path="res://Scripts/TestNode.cs" id="3_3rf7r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dxx58"]
+radius = 12.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+motion_mode = 1
+script = ExtResource("1_dup16")
+MySpeed = 49.5
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("2_42805")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_dxx58")
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
+shape = SubResource("CircleShape2D_dxx58")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("3_3rf7r")
